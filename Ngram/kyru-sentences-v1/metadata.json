@@ -1,0 +1,88 @@
+{
+  "name": "kyru-sentences",
+  "version": "1",
+  "task": "sentence-level language identification: Kyrgyz (ky) or Russian (ru)",
+  "fields": {
+    "id": "split and line number, e.g. test-00001",
+    "lang": "ky or ru",
+    "text": "one sentence",
+    "doc_id": "the web page the sentence comes from; all its sentences are in one split",
+    "source": "kyrtext/web, or fineweb-2/<site>"
+  },
+  "sources": {
+    "ky": {
+      "repository": "tchubakov/kyrtext",
+      "revision": "60a136cf1aaaccb1fba757f924858df4624f910c",
+      "file": "data/test-00000-of-00001.parquet",
+      "licence": "none given on the dataset card; do not publish without checking"
+    },
+    "ru": {
+      "file": "fineweb2-rus-kg.jsonl.gz",
+      "sha256": "0200acfbe163f9706c25b2aa36bd6d5d820e1d41c6e24d640930824e6ac77259",
+      "licence": "ODC-By 1.0; also subject to Common Crawl's terms of use"
+    },
+    "pools": {
+      "ky": {
+        "file": "pool-ky.jsonl.gz",
+        "sha256": "388c5cef8cb6b4a13d4a4d1586ec40fa75ae826e7d07a8a14d64aaa025c6a671"
+      },
+      "ru": {
+        "file": "pool-ru.jsonl.gz",
+        "sha256": "5321fe8275957b6515e214f05b2e5def94dbf173f09781f7c0323bf3372d2dcc"
+      }
+    }
+  },
+  "split": {
+    "by": "document",
+    "seed": 42,
+    "max_sentences_per_document": 5,
+    "test_sentences_per_language": 1000,
+    "val_sentences_per_language": 1000,
+    "train_words_per_language": 125000
+  },
+  "counts": {
+    "train": {
+      "ky": {
+        "documents": 2652,
+        "sentences": 10235,
+        "words": 125021,
+        "characters": 1032581
+      },
+      "ru": {
+        "documents": 1798,
+        "sentences": 8723,
+        "words": 125028,
+        "characters": 954918
+      }
+    },
+    "val": {
+      "ky": {
+        "documents": 255,
+        "sentences": 1000,
+        "words": 12920,
+        "characters": 108101
+      },
+      "ru": {
+        "documents": 208,
+        "sentences": 1000,
+        "words": 14235,
+        "characters": 109065
+      }
+    },
+    "test": {
+      "ky": {
+        "documents": 253,
+        "sentences": 1000,
+        "words": 12371,
+        "characters": 103292
+      },
+      "ru": {
+        "documents": 206,
+        "sentences": 1000,
+        "words": 14018,
+        "characters": 105835
+      }
+    }
+  },
+  "dataset_sha256": "9c3ecb9e36fdcabf11a69dd5704b42322343d05681d44250e8d7871e46c286d3"
+}
